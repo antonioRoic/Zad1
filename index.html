@@ -4,10 +4,13 @@
 		<meta name="viewport" content="width= device-width, initial-scale= 1.0, maximum-scale=1, minimum-scale=1">
 		<meta charset="UTF-8">
 		<title>Locastic</title>
-		<link rel="stylesheet" href="styles/style.css">
+		<link rel="stylesheet" href="styles/styles.css">
+		<link rel="stylesheet" media="(max-width: 768px)" href="styles/stylesTablet.css">
+		<link rel="stylesheet" media="(max-width: 640px)" href="styles/stylesMobile.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/jQuery.js"></script>
+		<script src="js/jQuery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.js"></script>	
 	</head>
 	<body>
 		
@@ -17,8 +20,13 @@
 				<div class="logo">
 					<img src="images/logo.png" />
 				</div>
-			
+
+				<div class="mobile-nav">
+					<img class="mobile-menu" src="images/menu.png">
+				</div>
+
 				<div class="nav-wrapper">
+					<div class="mobile-close"><img src="images/close.png"></div>
 					<nav>
 						<ul>
 							<li><a href="#">Home</a></li>
@@ -44,16 +52,19 @@
                 <div class="slider-nav">
                     <span class="active"></span><span></span><span></span>
                </div>
-            </div>
+			</div>
+			
             <!--Articles-->
 			<section class="articles">
 				<div class="articles-wrapper">
+					<template class="articles-template">
 						<article>
-							<img src="images/eiffel.png"/>
-							<h2>Roboto 40px Size, Spacing 44px - Comment On The Importance Of Human Life</h2>
-							<p>Roboto Regular, 22px, Spacing 34px - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-							<a href="#">View full article</a>
+							<img src={{image}} />
+							<h2>{{header}}</h2>
+							<p>{{paragraph}}</p>
+							<a href="#">{{link}}</a>
 						</article>
+					</template>
 				</div>
 				<div class="load-button">
 					<button type="button">Load More</button>
